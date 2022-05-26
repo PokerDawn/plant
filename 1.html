@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 450px;
+            height: 650px;
+            margin: 0 auto;
+            border: 1px solid black;
+            background-image: url(https://image.mc9y.com/2022/05/26/88751521d1d01.jpeg);
+            background-size: 200%;
+            background-position:50% 100%;
+            position: relative;
+        }
+        #plant{
+            width: 50px;
+            position: absolute;
+            transform: rotate(180deg);
+        }
+        .mobbar{
+            height: 10px;
+            width: 100px;
+            border-radius: 2px;
+            border: 1px solid white;
+        }
+        .bossmobbar{
+            height: 10px;
+            width: 200px;
+            border-radius: 2px;
+            border: 1px solid white;
+        }
+        .mobbar1{
+            height: 10px;
+            background-color: red;
+            border-radius: 2px;
+        }
+        .mobbar2{
+            height: 10px;
+            background-color: red;
+            border-radius: 2px;
+        }
+        #player{
+            position: absolute;
+            left: 10%;
+            top: 5%;
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+        }
+        #health{
+            display: flex;
+            flex-direction: row;
+            font-weight: bolder;
+            color: green;
+        }
+        #health>div{
+            width: 200px;
+            height: 20px;
+            border-radius: 5px;
+            border: 1px solid black;
+            
+        }
+        #health p{
+            width: 200px;
+            background-color: green;
+            height: 20px;
+        }
+        #range{
+            display: flex;
+            flex-direction: row;
+            font-weight: bolder;
+            color: red;
+        }
+        #range>div{
+            width: 200px;
+            height: 20px;
+            border-radius: 5px;
+            border: 1px solid black;
+            
+        }
+        #range p{
+            width: 0px;
+            background-color: red;
+            height: 20px;
+        }
+        #in{
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -150px;
+            margin-left: -150px;
+        }
+        #in p,a{
+            color: white;
+            width: 200px;
+            height: 50px;
+            background-color: rgba(5, 5, 44, 0.297);
+            border-radius: 10px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bolder;
+            margin: 5px;
+            margin-left: 50px;
+            display: block;
+        }
+        #in p,a:hover{
+            box-shadow: 0px 0px 30px 5px gray;
+        }
+        #in p,a:link{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="https://image.mc9y.com/2022/05/26/f0f154dae71b5.jpg" id="plant">
+    </div>
+    <div id="player">
+        <div id="health">生命值:<div><p></p></div></div>
+        <div id="range">怒气值:<div><p></p></div></div>
+    </div>
+    <script src="./js/system.js"></script>
+    <script src="./js/fire.js"></script>
+    <script>
+        function end1(){
+        box.innerHTML=`
+        <div id="in">
+       <p style="color: orange;font-size:30px">恭喜通关！</p>
+       <a href="./index.html">返回主页面</a>
+       <a href="./2.html">下一关</a>
+   </div>
+    `
+}
+//关卡通过
+function end(){
+     box.innerHTML=`
+     <div id="in">
+        <p style="color: red;font-size:30px">飞机已被击毁!</p>
+        <a href="./index.html">返回主页面</a>
+        <a href="./1.html">重新挑战</a>
+    </div>
+     `
+ }
+ //按j键攻击
+document.addEventListener("keydown",function (){
+    if(Attack_flag==0){
+        Attack_flag =1;
+        if(event.keyCode ===74){
+            CreateAttack(0,4);
+        }
+        setTimeout(() => {
+            Attack_flag =0;
+        }, 200);
+    }
+})
+document.addEventListener("keydown",function (){
+    plantmove();
+})
+    </script>
+</body>
+</html>

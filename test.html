@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>第一关</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 450px;
+            height: 650px;
+            margin: 0 auto;
+            border: 1px solid black;
+            background-image: url(./img/游戏背景.jpeg);
+            background-size: 200%;
+            background-position:50% 100%;
+            position: relative;
+        }
+        #plant{
+            width: 50px;
+            position: absolute;
+            transform: rotate(180deg);
+        }
+        .mobbar{
+            height: 10px;
+            width: 100px;
+            border-radius: 2px;
+            border: 1px solid white;
+        }
+        .mobbar1{
+            height: 10px;
+            background-color: red;
+            border-radius: 2px;
+        }
+        #player{
+            position: absolute;
+            left: 10%;
+            top: 5%;
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+        }
+        #health{
+            display: flex;
+            flex-direction: row;
+            font-weight: bolder;
+            color: green;
+        }
+        #health>div{
+            width: 200px;
+            height: 20px;
+            border-radius: 5px;
+            border: 1px solid black;
+            
+        }
+        #health p{
+            width: 200px;
+            background-color: green;
+            height: 20px;
+        }
+        #range{
+            display: flex;
+            flex-direction: row;
+            font-weight: bolder;
+            color: red;
+        }
+        #range>div{
+            width: 200px;
+            height: 20px;
+            border-radius: 5px;
+            border: 1px solid black;
+            
+        }
+        #range p{
+            width: 0px;
+            background-color: red;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="./img/飞机素材.jpg" id="plant">
+    </div>
+    <div id="player">
+        <div id="health">生命值:<div><p></p></div></div>
+        <div id="range">怒气值:<div><p></p></div></div>
+    </div>
+    <script src="./js/system.js"></script>
+</body>
+</html>

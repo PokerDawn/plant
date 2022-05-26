@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>飞机大战</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 450px;
+            height: 650px;
+            margin: 0 auto;
+            border: 1px solid black;
+            background-image: url(https://image.mc9y.com/2022/05/26/88751521d1d01.jpeg);
+            background-size: 200%;
+            background-position: 50% 100%;
+            position: relative;
+        }
+        #in{
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -150px;
+            margin-left: -150px;
+        }
+        #in p,a{
+            color: white;
+            width: 200px;
+            height: 50px;
+            background-color: rgba(5, 5, 44, 0.297);
+            border-radius: 10px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bolder;
+            margin: 5px;
+            margin-left: 50px;
+            display: block;
+        }
+        #in p,a:hover{
+            box-shadow: 0px 0px 30px 5px gray;
+        }
+        #in p,a:link{
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="in">
+            <p onclick="start()">开始游戏</p>
+        </div>
+    </div>
+
+    <script>
+        var bg = document.querySelector("#box");
+        var num = 100;
+        //背景移动
+        setInterval(() => {
+            num--;
+            bg.style.backgroundPosition = `50% ${num}%`;
+            if (num === 0) {
+                num = 100;
+            }
+        }, 50);
+    
+        var in1 = document.querySelector("#in");
+        var btn1 = in1.querySelector('p');
+        function start(){
+            in1.innerHTML=`
+            <a href="./1.html">第一关</a>
+            <a href="./2.html">第二关</a>
+            <a>第三关</a>
+            <a>第四关</a>
+            <a>第五关</a>
+            <a onclick="back()">返回</a>
+        `;
+        }
+        function back(){
+            in1.innerHTML=`
+            <p onclick="start()">开始游戏</p>
+        `;
+        }
+        var audio = new Audio("./vido/老碎p - 魂斗罗BGM remix.mp3");
+        setTimeout(()=>{
+            audio.play();
+        },2000);
+        
+    </script>
+</body>
+
+</html>
