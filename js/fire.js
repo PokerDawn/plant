@@ -64,7 +64,7 @@ function boss1_create(){
             mob.id= "boss_first";
             mob.style.position='absolute';
             mob.style.top='0%'
-            mob.heath=150;
+            mob.heath=100;
             mob.innerHTML='<div class="bossmobbar"><div class="mobbar2" style="width: 200px;"></div></div><img src="https://image.mc9y.com/2022/05/26/9b4000086b02d.jpeg" width="200">';
             mob.style.left="30%";
             mob.className='mob';
@@ -133,7 +133,7 @@ function movebossAttack(x,y){
 //boss血条变化
 function bossmobbar(mob){
     var bar = mob.querySelector('.bossmobbar').querySelector('.mobbar2');
-    bar.style.width=parseInt(bar.style.width)-1.5+'px';
+    bar.style.width=parseInt(bar.style.width)-1+'px';
 }
  //子弹发射技能组
 function first_boss_skill(){
