@@ -50,19 +50,19 @@ function range(){
 function plantmove(){
     //向左移动
     if(event.keyCode === 65 && parseInt(plant.style.left)>0){
-        plant.style.left = parseInt(plant.style.left)-15+'px';
+        plant.style.left = parseInt(plant.style.left)-10+'px';
     }
     // /向右移动
     if(event.keyCode === 68 && parseInt(plant.style.left)<box.scrollWidth-plant.scrollWidth){
-        plant.style.left = parseInt(plant.style.left)+15+'px';
+        plant.style.left = parseInt(plant.style.left)+10+'px';
     }
     //向上移动
     if(event.keyCode === 87 && parseInt(plant.style.top)>0){
-        plant.style.top = parseInt(plant.style.top)-15+'px';
+        plant.style.top = parseInt(plant.style.top)-10+'px';
     }
     //向下移动
     if(event.keyCode === 83 && parseInt(plant.style.top)<box.scrollHeight-plant.scrollHeight){
-        plant.style.top = parseInt(plant.style.top)+15+'px';
+        plant.style.top = parseInt(plant.style.top)+10+'px';
     }
 }
 //子弹创建
@@ -96,13 +96,16 @@ function moveAttack(x,y){
             ((i)=>{
                 var attack = attacks[i];
                 attack.className='Attack1';
-                setInterval(()=>{
+               let a1= setInterval(()=>{
                     attack.style.top = parseFloat(attack.style.top)-y+'px';
                     attack.style.left= parseFloat(attack.style.left)+x+'px'
                     if(parseInt(attack.style.top)<0||(parseInt(attack.style.width)<0||parseInt(attack.style.width)>box.scrollWidth)){
                         attack.remove()
                     }
                 },10);
+                setTimeout(()=>{
+                    clearInterval(a1);
+                },5000)
             })(i)
         }
 }
@@ -238,12 +241,15 @@ function movemobAttack(){
              (function(i){
                  var attack = attacks[i];
                  attack.className='mobAttack1';
-                 setInterval(()=>{
+                let a1=setInterval(()=>{
                      attack.style.top = parseInt(attack.style.top)+2+'px';
                      if(parseInt(attack.style.top)>650){
                          attack.remove();
                      }
                  },10);
+                 setTimeout(()=>{
+                    clearInterval(a1);
+                },5000)
              })(i)
          }
  }

@@ -51,7 +51,7 @@ function movebossAttack(x,y){
              ((i)=>{
                  var attack = attacks[i];
                  attack.className='bossAttack1';
-                 setInterval(()=>{
+               let a1=setInterval(()=>{
                      attack.style.top = parseFloat(attack.style.top)+y+'px';
                      attack.style.left = parseFloat(attack.style.left)+x+'%';
                      if(parseInt(attack.style.top)>650){
@@ -64,6 +64,9 @@ function movebossAttack(x,y){
                         attack.remove();
                     }
                  },10);
+                 setTimeout(()=>{
+                    clearInterval(a1);
+                },5000)
              })(i)
          }
  }
