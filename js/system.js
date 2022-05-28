@@ -16,9 +16,6 @@ setInterval(()=>{
         nub=100;
     }
 },50);
-document.addEventListener("keydown",function (){
-    plantmove();
-})
 //怒气触发
 var plant_range_flag=0;
 document.addEventListener("keydown",function (){
@@ -45,25 +42,6 @@ function range(){
         clearInterval(r1);
     },1000);
 
-}
-//飞机移动
-function plantmove(){
-    //向左移动
-    if(event.keyCode === 65 && parseInt(plant.style.left)>0){
-        plant.style.left = parseInt(plant.style.left)-10+'px';
-    }
-    // /向右移动
-    if(event.keyCode === 68 && parseInt(plant.style.left)<box.scrollWidth-plant.scrollWidth){
-        plant.style.left = parseInt(plant.style.left)+10+'px';
-    }
-    //向上移动
-    if(event.keyCode === 87 && parseInt(plant.style.top)>0){
-        plant.style.top = parseInt(plant.style.top)-10+'px';
-    }
-    //向下移动
-    if(event.keyCode === 83 && parseInt(plant.style.top)<box.scrollHeight-plant.scrollHeight){
-        plant.style.top = parseInt(plant.style.top)+10+'px';
-    }
 }
 //子弹创建
 function CreateAttack(x,y){
@@ -294,4 +272,103 @@ function movemobAttack(){
  }
 
 
- 
+ //向左移动
+ var left_key_flag=0;
+ var left_key_clear;
+ document.addEventListener('keydown',function(){
+     if(left_key_flag==0){
+        if(event.keyCode==65){
+            left_key_flag=1;
+           left_key_clear= setInterval(()=>{
+            if(parseInt(plant.style.left)>0){
+                plant.style.left = parseInt(plant.style.left)-5+'px';
+            }
+            },50)
+        }
+     }
+    
+ })
+ document.addEventListener('keyup',function(){
+    if(left_key_flag==1){
+        if(event.keyCode==65){
+            left_key_flag=0;
+            clearInterval(left_key_clear);
+        }
+     }
+    
+ })
+  //向右移动
+ var right_key_flag=0;
+ var right_key_clear;
+ document.addEventListener('keydown',function(){
+     if(right_key_flag==0){
+        if(event.keyCode==68){
+            right_key_flag=1;
+            right_key_clear= setInterval(()=>{
+                if(parseInt(plant.style.left)<box.scrollWidth-plant.scrollWidth){
+                    plant.style.left = parseInt(plant.style.left)+5+'px';
+                }
+            },50)
+        }
+     }
+    
+ })
+ document.addEventListener('keyup',function(){
+    if(right_key_flag==1){
+        if(event.keyCode==68){
+            right_key_flag=0;
+            clearInterval(right_key_clear);
+        }
+     }
+    
+ })
+ //向下移动
+ var bottom_key_flag=0;
+ var bottom_key_clear;
+ document.addEventListener('keydown',function(){
+     if(bottom_key_flag==0){
+        if(event.keyCode==83){
+            bottom_key_flag=1;
+            bottom_key_clear= setInterval(()=>{
+                if(parseInt(plant.style.top)<box.scrollHeight-plant.scrollHeight){
+                    plant.style.top = parseInt(plant.style.top)+5+'px';
+                }
+            },50)
+        }
+     }
+    
+ })
+ document.addEventListener('keyup',function(){
+    if(bottom_key_flag==1){
+        if(event.keyCode==83){
+            bottom_key_flag=0;
+            clearInterval(bottom_key_clear);
+        }
+     }
+    
+ })
+//向上移动
+var top_key_flag=0;
+ var top_key_clear;
+ document.addEventListener('keydown',function(){
+     if(top_key_flag==0){
+        if(event.keyCode==87){
+            top_key_flag=1;
+            top_key_clear= setInterval(()=>{
+                if(parseInt(plant.style.top)>0){
+                    plant.style.top = parseInt(plant.style.top)-5+'px';
+                }
+            },50)
+        }
+     }
+    
+ })
+ document.addEventListener('keyup',function(){
+    if(top_key_flag==1){
+        if(event.keyCode==87){
+            top_key_flag=0;
+            clearInterval(top_key_clear);
+        }
+     }
+    
+ }) 
