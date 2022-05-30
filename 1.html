@@ -119,6 +119,38 @@
         #in p,a:link{
             text-decoration: none;
         }
+        #move{
+            position: absolute;
+            top: 60%;
+            left: 5%;
+            width: 40%;
+            height: 20%;
+        }
+        #move div{
+            width: 40%;
+            height: 40%;
+            position: absolute;
+            border-radius: 40px;
+            text-align: center;
+            line-height: 50px;
+            background-color: rgba(240, 248, 255, 0.34);
+        }
+        #att{
+            position: absolute;
+            top: 60%;
+            left: 60%;
+            width: 40%;
+            height: 20%;
+        }
+        #att div{
+            width: 40%;
+            height: 40%;
+            position: absolute;
+            border-radius: 40px;
+            text-align: center;
+            line-height: 50px;
+            background-color: rgba(240, 248, 255, 0.34);
+        }
     </style>
 </head>
 <body>
@@ -128,6 +160,16 @@
     <div id="player">
         <div id="health">生命值:<div><p></p></div></div>
         <div id="range">怒气值:<div><p></p></div></div>
+    </div>
+    <div id="move">
+        <div style="left: 0%;top: 30%;" id="left">左</div>
+        <div style="left: 60%;top: 30%;" id="right">右</div>
+        <div style="left: 30%;top: 0%;" id="up">上</div>
+        <div style="left: 30%;top: 60%;" id="down">下</div>
+    </div>
+    <div id="att">
+        <div style="left: 10%;top: 30%;" id="damage">攻击</div>
+        <div style="left: 60%;top: 30%;" id="range1">怒气</div>
     </div>
     <script src="./js/system.js"></script>
     <script src="./js/fire.js"></script>
@@ -161,6 +203,34 @@ document.addEventListener("keydown",function (){
         setTimeout(() => {
             Attack_flag =0;
         }, 200);
+    }
+})
+//移动端攻击
+var damage = document.querySelector("#damage");
+var range1 = document.querySelector("#range1");
+damage.addEventListener("touchstart",function (){
+    if(Attack_flag==0){
+        Attack_flag =1;
+            CreateAttack(0,4);
+        setTimeout(() => {
+            Attack_flag =0;
+        },300);
+    }
+})
+//怒气触发
+range1.addEventListener("touchstart",function (){
+    if(plant.range>=20){
+        var attacks = document.querySelectorAll('.bossAttack1'); 
+        for(var i=0;i<attacks.length;i++){
+           var attack = attacks[i];
+           attack.remove();
+        }
+        plant_range_flag=1;
+        plant.range=0;
+        range();
+        setTimeout(()=>{
+            plant_range_flag=0;
+        },5000);
     }
 })
 document.addEventListener("keydown",function (){
