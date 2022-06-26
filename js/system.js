@@ -35,6 +35,16 @@ document.addEventListener("keydown",function (){
 })
 //怒气技能
 function range(){
+        CreateAttack(0.1,4);
+        CreateAttack(-0.1,4);
+        CreateAttack(0.3,4);
+        CreateAttack(-0.3,4);
+        CreateAttack(0.5,4);
+        CreateAttack(-0.5,4);
+        CreateAttack(0.7,4);
+        CreateAttack(-0.7,4);
+        CreateAttack(1,4);
+        CreateAttack(-1,4);
     var r1=setInterval(()=>{
         CreateAttack(0,4);
     },100);
@@ -283,7 +293,7 @@ function movemobAttack(){
             if(parseInt(plant.style.left)>0){
                 plant.style.left = parseInt(plant.style.left)-5+'px';
             }
-            },50)
+            },20)
         }
      }
     
@@ -308,7 +318,7 @@ function movemobAttack(){
                 if(parseInt(plant.style.left)<box.scrollWidth-plant.scrollWidth){
                     plant.style.left = parseInt(plant.style.left)+5+'px';
                 }
-            },50)
+            },20)
         }
      }
     
@@ -333,7 +343,7 @@ function movemobAttack(){
                 if(parseInt(plant.style.top)<box.scrollHeight-plant.scrollHeight){
                     plant.style.top = parseInt(plant.style.top)+5+'px';
                 }
-            },50)
+            },20)
         }
      }
     
@@ -358,7 +368,7 @@ var top_key_flag=0;
                 if(parseInt(plant.style.top)>0){
                     plant.style.top = parseInt(plant.style.top)-5+'px';
                 }
-            },50)
+            },20)
         }
      }
     
@@ -372,87 +382,3 @@ var top_key_flag=0;
      }
     
  }) 
-
- //手机移动
- var left = document.querySelector("#left");
- var right = document.querySelector("#right");
- var down = document.querySelector("#down");
- var up = document.querySelector("#up");
-
- //左
- left.addEventListener('touchstart',function(){
-    if(left_key_flag==0){
-           left_key_flag=1;
-          left_key_clear= setInterval(()=>{
-           if(parseInt(plant.style.left)>0){
-               plant.style.left = parseInt(plant.style.left)-5+'px';
-           }
-           },50)
-    }
-   
-})
-left.addEventListener('touchend',function(){
-   if(left_key_flag==1){
-           left_key_flag=0;
-           clearInterval(left_key_clear);
-    }
-   
-})
-//向右移动
-right.addEventListener('touchstart',function(){
-    if(right_key_flag==0){
-           right_key_flag=1;
-           right_key_clear= setInterval(()=>{
-               if(parseInt(plant.style.left)<box.scrollWidth-plant.scrollWidth){
-                   plant.style.left = parseInt(plant.style.left)+5+'px';
-               }
-           },50)
-    }
-   
-})
-right.addEventListener('touchend',function(){
-   if(right_key_flag==1){
-           right_key_flag=0;
-           clearInterval(right_key_clear);
-       }
-   
-})
-
-//向下移动
-down.addEventListener('touchstart',function(){
-    if(bottom_key_flag==0){
-           bottom_key_flag=1;
-           bottom_key_clear= setInterval(()=>{
-               if(parseInt(plant.style.top)<box.scrollHeight-plant.scrollHeight){
-                   plant.style.top = parseInt(plant.style.top)+5+'px';
-               }
-           },50)
-    }
-   
-})
-down.addEventListener('touchend',function(){
-   if(bottom_key_flag==1){
-           bottom_key_flag=0;
-           clearInterval(bottom_key_clear);
-    }
-   
-})
-//向上移动
-up.addEventListener('touchstart',function(){
-    if(top_key_flag==0){
-           top_key_flag=1;
-           top_key_clear= setInterval(()=>{
-               if(parseInt(plant.style.top)>0){
-                   plant.style.top = parseInt(plant.style.top)-5+'px';
-               }
-           },50)
-    }
-   
-})
-up.addEventListener('touchend',function(){
-   if(top_key_flag==1){
-           top_key_flag=0;
-           clearInterval(top_key_clear);
-    }
-   
-}) 
